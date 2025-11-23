@@ -1,0 +1,39 @@
+\begin{thebibliography}{00}
+
+\bibitem{hochreiter1997lstm}
+S. Hochreiter and J. Schmidhuber, “Long short-term memory,” \emph{Neural Computation}, vol. 9, no. 8, pp. 1735--1780, 1997.
+
+\bibitem{schuster1997bilstm}
+M. Schuster and K. K. Paliwal, “Bidirectional recurrent neural networks,” \emph{IEEE Transactions on Signal Processing}, vol. 45, no. 11, pp. 2673--2681, 1997.
+
+\bibitem{mikolov2013distributed}
+T. Mikolov, I. Sutskever, K. Chen, G. Corrado, and J. Dean, “Distributed representations of words and phrases and their compositionality,” in \emph{Proc. NIPS}, 2013.
+
+\bibitem{pennington2014glove}
+J. Pennington, R. Socher, and C. Manning, “GloVe: Global vectors for word representation,” in \emph{Proc. EMNLP}, 2014.
+
+\bibitem{devlin2019bert}
+J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, “BERT: Pre-training of deep bidirectional transformers for language understanding,” in \emph{Proc. NAACL}, 2019.
+
+\bibitem{bouazizi2017sentiment}
+M. Bouazizi and T. Ohtsuki, “A pattern-based approach for multi-class sentiment analysis in Twitter,” \emph{IEEE Access}, vol. 5, pp. 20617--20639, 2017.
+
+\bibitem{chakraborty2020cm}
+T. Chakraborty, A. Choudhury, M. Ragini, and K. Saha, “Sentiment analysis of code-mixed Indian languages: A survey,” in \emph{Proc. LREC}, 2020.
+
+\bibitem{alam2018bangla}
+F. Alam, N. F. Hossain, and S. A. Hossain, “Bidirectional LSTM and attention-based model for Bangla sentiment analysis,” in \emph{Proc. ICAICT}, 2018.
+
+\bibitem{hasan2020bnlp}
+H. Hasan, N. M. Rahman, and M. S. Islam, “BNLP toolkit: Natural language processing toolkit for Bengali language,” in \emph{Proc. LREC}, 2020.
+
+\bibitem{mendeleyDataset}
+S. K. Das, “Bangla and Banglish emotion dataset (80k),” \emph{Mendeley Data}, V2, 2020. Available: https://data.mendeley.com/datasets/4dnrwbxt8n/2
+
+\bibitem{yadav2020deep}
+A. Yadav and D. Vishwakarma, “Deep learning-based sentiment analysis using LSTM,” \emph{Procedia Computer Science}, vol. 167, pp. 1825--1834, 2020.
+
+\bibitem{bengaliCodeMixed}
+A. K. Das, S. Mandal, and A. Basu, “A survey on code-mixed text processing,” \emph{ACM Computing Surveys}, vol. 54, no. 2, pp. 1--36, 2021.
+
+\end{thebibliography}

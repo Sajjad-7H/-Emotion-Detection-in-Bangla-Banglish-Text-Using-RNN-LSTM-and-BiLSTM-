@@ -1,0 +1,57 @@
+Project Title:
+
+Emotion Detection in Bangla–Banglish Text Using RNN (LSTM & BiLSTM)
+
+Submitted Files & Brief Description:
+1. Emotion Detection in Bangla–Banglish Text.ipynb / .py
+Main Project Code
+•	Full preprocessing pipeline
+•	Custom tokenization (no external NLP libraries)
+•	Vocabulary building (50k words)
+•	Train/Val/Test split
+•	Sequence encoding + padding
+•	LSTM & BiLSTM architecture building
+•	4 model runs (LSTM Run1–2, BiLSTM Run1–2)
+•	Training curves + evaluation metrics
+•	Confusion matrices, F1 scores
+•	Model saving
+2. Bengali_Banglish_Dataset.csv
+•	Original 80K code–mixed dataset
+•	Contains Bangla, Banglish, and combined labelled text
+•	6 emotion labels: anger, disgust, fear, joy, sadness, surprise
+3. train_clean.csv, val_clean.csv, test_clean.csv
+•	Cleaned & preprocessed dataset
+•	After:
+o	Unicode normalization
+o	URL & emoji removal
+o	Script detection
+o	Romanization normalization
+o	Duplicate removal
+o	Token cleaning
+•	Used for training/testing
+4. train_X.npy, val_X.npy, test_X.npy
+•	Integer–encoded padded sequences
+•	Max length: 80 tokens
+•	Ready for model input
+5. train_y.npy, val_y.npy, test_y.npy
+•	Encoded numeric labels (0–5) for 6 emotions
+7. requirements.txt
+List of dependencies needed to run the project
+•	numpy
+•	pandas
+•	torch / tensorflow
+•	sklearn
+•	matplotlib
+8. Report_1101_1097_1105.pdf
+9. Code_1101_1105_1097.zip
+10. SUBMISSION_CHECKLIST.txt          - This file – summary of all submitted files
+Key Results Achieved:
+
+•  4 RNN models tested: LSTM (2 runs) & BiLSTM (2 runs)
+•  Best Model: BiLSTM (Tuned) → ~59% accuracy
+•  Improvement: Baseline LSTM (~46%) → BiLSTM Tuned (~59%)
+•  Strong Classes: Joy, Sadness
+•  Weak Classes: Anger, Disgust (imbalance)
+•  Full documentation: layers, dropout, units, LR, batch size, F1 scores, confusion matrix
+•  Custom preprocessing: Bangla–Banglish cleaning + tokenizer + 50k vocabulary
+

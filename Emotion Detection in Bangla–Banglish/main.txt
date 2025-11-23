@@ -1,0 +1,1155 @@
+%% bare_jrnl_compsoc.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% Computer Society journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+\usepackage{graphicx}
+\usepackage{float}
+
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[10pt,journal,compsoc]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+%
+% Note that some packages require special options to format as the Computer
+% Society requires. In particular, Computer Society  papers do not use
+% compressed citation ranges as is done in typical IEEE papers
+% (e.g., [1]-[4]). Instead, they list every citation separately in order
+% (e.g., [1], [2], [3], [4]). To get the latter we need to load the cite
+% package with the nocompress option which is supported by cite.sty v4.0
+% and later. Note also the use of a CLASSOPTION conditional provided by
+% IEEEtran.cls V1.7 and later.
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a sans serif font rather
+% than the serif font used in traditional IEEE formatting and thus the need
+% to invoke different subfig.sty package options depending on whether
+% compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure somewhere and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Emotion Detection in Bangla–Banglish Text Using\\RNN( LSTM and BiLSTM)}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+%
+%\IEEEcompsocitemizethanks is a special \thanks that produces the bulleted
+% lists the Computer Society journals use for "first footnote" author
+% affiliations. Use \IEEEcompsocthanksitem which works much like \item
+% for each affiliation group. When not in compsoc mode,
+% \IEEEcompsocitemizethanks becomes like \thanks and
+% \IEEEcompsocthanksitem becomes a line break with idention. This
+% facilitates dual compilation, although admittedly the differences in the
+% desired content of \author between the different types of papers makes a
+% one-size-fits-all approach a daunting prospect. For instance, compsoc 
+% journal papers have the author affiliations above the "Manuscript
+% received ..."  text while in non-compsoc journals this is reversed. Sigh.
+
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{ \ ~}%
+{Shell \MakeLowercase{\textit{et al.}}: }
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+% The publisher's ID mark at the bottom of the page is less important with
+% Computer Society journal papers as those publications place the marks
+% outside of the main text columns and, therefore, unlike regular IEEE
+% journals, the available text space is not reduced by their presence.
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% or like this to get the Computer Society new two part style.
+%\IEEEpubid{\makebox[\columnwidth]{\hfill 0000--0000/00/\$00.00~\copyright~2015 IEEE}%
+%\hspace{\columnsep}\makebox[\columnwidth]{Published by the IEEE Computer Society\hfill}}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark (Computer Society jorunal
+% papers don't need this extra clearance.)
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+% for Computer Society papers, we must declare the abstract and index terms
+% PRIOR to the title within the \IEEEtitleabstractindextext IEEEtran
+% command as these need to go into the title area created by \maketitle.
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+
+\boldmath
+This project presents a deep learning-based emotion detection system for Bangla and Banglish text using custom-built Long Short-Term Memory (LSTM) and Bidirectional LSTM (BiLSTM) architectures. The study utilizes an 80K mixed-language social media dataset containing six emotion categories: anger, disgust, fear, joy, sadness, and surprise. A comprehensive preprocessing pipeline was designed to handle the linguistic challenges of code-mixed Bangla–Banglish text, including Unicode normalization, script identification, noise removal, token cleaning, and duplicate filtering. A fully custom tokenizer—implemented without external NLP libraries—was developed to generate a vocabulary, convert text into sequences, and perform padding and truncation.
+
+Two deep learning models, LSTM and BiLSTM, were implemented with configurable hyperparameters including embedding dimension, recurrent units, dropout, learning rate, batch size, and sequence length. Multiple training runs were performed to examine the influence of hyperparameter variation on performance. Early stopping and adaptive learning-rate scheduling were applied to mitigate overfitting and stabilize the training process. Model performance was evaluated using accuracy, macro F1-score, loss curves, and confusion matrices.
+
+Experimental results demonstrate that the BiLSTM model consistently outperforms the standard LSTM across most metrics, owing to its enhanced bidirectional contextual understanding. While emotions such as joy and sadness showed strong classification performance, minority classes like disgust remained challenging due to dataset imbalance. Overall, the project showcases the effectiveness of recurrent neural architectures for multilingual and low-resource sentiment analysis tasks, providing a complete reproducible pipeline from preprocessing to training, evaluation, and comparative analysis.
+
+This work serves as a foundation for future research in Bangla NLP, including transformer-based extensions, data augmentation strategies, and real-time emotion-aware applications.
+\end{abstract}
+
+
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+
+Emotion detection, sentiment analysis, Bangla, Banglish, code-mixed text, LSTM, Bidirectional LSTM (BiLSTM), deep learning
+
+
+\end{IEEEkeywords}}
+
+
+% make the title area
+\maketitle
+
+
+% To allow for easy dual compilation without having to reenter the
+% abstract/keywords data, the \IEEEtitleabstractindextext text will
+% not be used in maketitle, but will appear (i.e., to be "transported")
+% here as \IEEEdisplaynontitleabstractindextext when the compsoc 
+% or transmag modes are not selected <OR> if conference mode is selected 
+% - because all conference papers position the abstract like regular
+% papers do.
+\IEEEdisplaynontitleabstractindextext
+% \IEEEdisplaynontitleabstractindextext has no effect when using
+% compsoc or transmag under a non-conference mode.
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\IEEEraisesectionheading{\section{Introduction}\label{sec:introduction}}
+
+\IEEEPARstart{E}{motion} recognition from text has become an essential component of modern intelligent systems, enabling applications such as sentiment-aware social media monitoring, customer feedback analysis, mental health assessment, and human--computer interaction. While extensive research has been conducted in English and other high-resource languages, the domains of Bangla and Banglish (a code-mixed form of Bangla written using Roman script) remain significantly underexplored. The scarcity of annotated datasets, lack of standardized preprocessing techniques, and linguistic variations pose major challenges for computational models. As a result, the development of robust emotion detection systems for Bangla and Banglish remains an open research problem.
+
+Bangla is the seventh most spoken language in the world, yet resources for natural language processing (NLP) remain limited compared to English, Chinese, or Arabic. Furthermore, the rise of digital communication platforms has led to widespread use of Banglish, which combines Bangla semantics with English orthography. This informal, inconsistent writing style results in substantial noise, spelling variation, and script mixing, making traditional NLP pipelines ineffective. Therefore, an emotion classification system must handle mixed scripts, noisy user-generated content, and large variations in syntax and spelling.
+
+Recent advances in deep learning—specifically recurrent neural networks such as Long Short-Term Memory (LSTM) networks and Bidirectional LSTM (BiLSTM) networks—have shown promising results for sequence modeling tasks. These architectures are particularly effective at capturing contextual dependencies in text, making them suitable for emotion detection. However, most existing works rely heavily on pre-trained embeddings, third-party tokenizers, or high-resource language corpora, limiting their applicability to Bangla–Banglish contexts.
+
+\subsection{Problem Statement}
+Despite increasing digital communication in Bangla and Banglish, there is a lack of comprehensive, end-to-end emotion detection systems tailored to code-mixed environments. Existing approaches face three major gaps: (1) absence of robust preprocessing tailored to Bangla and Banglish orthographic variations; (2) lack of custom tokenization mechanisms that do not rely on external NLP libraries; and (3) insufficient evaluation of model performance across different recurrent neural architectures and hyperparameter configurations.
+
+This project addresses these gaps by constructing a complete emotion detection pipeline using an 80K Bangla–Banglish dataset containing six emotion categories: anger, disgust, fear, joy, sadness, and surprise. The study develops a custom preprocessing system, a standalone tokenizer, and two deep learning architectures—LSTM and BiLSTM—with configurable hyperparameters. Through systematic experimentation, the project evaluates model behavior, performance variance, and robustness to linguistic inconsistencies. The overarching objective is to build a reproducible, language-specific framework for emotion detection that can serve as a foundation for future research in Bangla NLP.
+\section{Related Work}
+Emotion detection from text has been widely explored within the broader field of sentiment analysis, particularly for high-resource languages such as English. Early approaches relied on lexicon-based techniques and traditional machine learning models, including Naïve Bayes, Support Vector Machines (SVM), and Logistic Regression. These models depended heavily on handcrafted features such as n-grams, TF--IDF scores, and syntactic markers. Although computationally efficient, such feature-engineered approaches often struggle to capture long-range contextual dependencies, limiting their effectiveness for modeling complex emotional expressions.
+
+The introduction of deep learning significantly advanced the field of text-based emotion recognition. Recurrent Neural Networks (RNNs), particularly Long Short-Term Memory (LSTM) networks, have demonstrated strong capability in learning sequential dependencies. Bidirectional LSTM (BiLSTM) architectures further improve performance by processing text in both forward and backward directions, offering a richer contextual understanding. Several studies have shown that LSTM and BiLSTM models outperform classical machine learning approaches, especially on informal or noisy user-generated text commonly found on social media platforms.
+
+Research involving Bangla natural language processing has expanded in recent years but still remains limited compared to work in English or other widely studied languages. Prior studies have explored sentiment polarity detection, hate speech classification, and text classification using techniques ranging from SVMs to CNNs and LSTMs. Word embeddings such as Word2Vec, GloVe, and FastText have also been used with moderate success. However, emotion detection in Bangla, particularly in code-mixed Bangla--Banglish text, remains largely understudied. Code-mixing introduces challenges such as inconsistent romanization, spelling variation, and mixed-script usage, which significantly degrade the performance of pretrained tokenizers and multilingual models.
+
+A notable addition to Bangla NLP resources is the publicly available 80K Bangla--Banglish emotion dataset hosted on Mendeley Data, which provides six emotion categories and diverse social media text samples. While this dataset has been used in early experimental studies, most existing works rely heavily on external NLP tools, pretrained embeddings, or multilingual transformer models. Only a limited number of studies focus on developing complete, language-specific pipelines that include custom preprocessing, tokenization, and systematic hyperparameter exploration.
+
+This project differentiates itself by addressing these gaps. It contributes: (i) a comprehensive preprocessing pipeline tailored for Bangla and Banglish code-mixed text, (ii) a fully custom tokenizer developed without external NLP libraries, and (iii) a comparative evaluation of LSTM and BiLSTM architectures using configurable hyperparameters. Through this combination of dataset-specific preprocessing, custom sequence modeling, and rigorous experimentation, the project advances the state of research in Bangla emotion detection and provides a reproducible foundation for future work.
+\section{Dataset}
+This section describes the dataset used for training and evaluating the emotion detection models. In addition to the basic dataset description, this extended version includes a more detailed exploratory data analysis (EDA), deeper code-mixing challenges, noisy text characteristics, and observations that influenced the preprocessing strategy.
+
+\subsection{Dataset Source and Composition}
+The dataset used in this project is the Bangla–Banglish Emotion Dataset available on Mendeley Data (Version~2). It contains roughly 80K user-generated social media posts annotated with one of six emotion labels: \textit{anger}, \textit{disgust}, \textit{fear}, \textit{joy}, \textit{sadness}, and \textit{surprise}.  
+
+The posts originate from Facebook comment threads, YouTube discussions, meme pages, and informal chat-style platforms. Because these sources reflect real conversational behavior, the text contains considerable noise such as code-mixed spelling, emojis, repeated letters, and nonstandard punctuation.
+
+The dataset distribution is imbalanced, with \textit{joy} and \textit{sadness} being the dominant classes, while categories like \textit{disgust} and \textit{surprise} have significantly fewer samples. This imbalance directly affects classifier performance and motivates the use of macro-averaged F1 scores.
+
+\subsection{Exploratory Data Analysis}
+
+\subsubsection{Emotion Class Distribution}
+The class frequencies show a skewed distribution. Approximately:
+\begin{itemize}
+    \item Joy: \(\sim 22\%\)
+    \item Sadness: \(\sim 21\%\)
+    \item Anger: \(\sim 18\%\)
+    \item Fear: \(\sim 16\%\)
+    \item Surprise: \(\sim 13\%\)
+    \item Disgust: \(\sim 10\%\)
+\end{itemize}
+
+This imbalance explains why the models, especially LSTM Run~1, perform weakly on \textit{anger}, \textit{fear}, and \textit{disgust}, which receive less representation during training.
+
+\subsubsection{Script and Token Characteristics}
+Approximately 52\% of the dataset is written in Romanized Bangla (Banglish), while 48\% uses native Bengali script. Banglish text is particularly challenging due to:
+\begin{itemize}
+    \item inconsistent romanization (e.g., ``bhalo'', ``valo'', ``balo''),
+    \item mixed phonetic approximations (``kharap'' vs. ``kharappp''),
+    \item English-influenced syntax,
+    \item inconsistent casing,
+    \item long sequences of repeated characters (``happyyyyy'', ``nooooo'').
+\end{itemize}
+
+The tokenizer must therefore support highly noisy and variable text patterns.
+
+\subsubsection{Token Distribution}
+Token frequency analysis shows that:
+\begin{itemize}
+    \item very common tokens include ``amar'', ``onek'', ``akta'', ``valo'', ``na'',
+    \item rare tokens form a long-tail distribution, motivating frequency thresholds,
+    \item Banglish tokens often appear in many spelling variants, inflating vocabulary size.
+\end{itemize}
+
+\subsubsection{Length Distribution}
+Cleaned text lengths typically vary between 5–12 tokens. Extremely short samples (e.g., ``ok'', ``hmm'', ``lol'') were removed during preprocessing as they carry minimal emotional content.
+
+\subsection{Challenges of Code-Mixed Data}
+Bangla–Banglish code-mixing introduces several unique issues:
+\begin{itemize}
+    \item \textbf{Nonstandard romanization:} no unified transliteration system.
+    \item \textbf{Script mixing within a single sentence:} ``Ami today khub upset''.
+    \item \textbf{Emoji-heavy expressions:} users frequently express tone using emoji sequences.
+    \item \textbf{Grammar mixing:} Bangla morphology combined with English verbs.
+\end{itemize}
+
+These challenges justify the need for a fully custom tokenizer rather than relying on pretrained tokenizers designed for English or monolingual Bangla.
+
+\subsection{Noisy Data Patterns}
+Several recurring noise patterns were identified:
+\begin{itemize}
+    \item emojis as emotional intensifiers,
+    \item exaggerated repetition of characters for emphasis,
+    \item unconventional punctuation (``!!!!!!!???''),
+    \item mixed numeric expressions (``100\% sure'', ``2din dhore''),
+    \item informal slangs like ``lol'', ``haha'', ``ufff'', ``ase'', ``acha''.
+\end{itemize}
+
+Each of these patterns required specialized cleaning rules.
+
+\subsection{Preprocessing Summary}
+After preprocessing:
+\begin{itemize}
+    \item Total clean samples: \(\sim 72,000\)
+    \item Vocabulary size (after thresholding): $\sim$ 18K–20K
+    \item Average sequence length: 30–40 characters
+    \item Script proportions: 52\% Banglish, 48\% Bangla
+\end{itemize}
+
+This expanded dataset analysis informed the architecture choices, hyperparameters, and fine-tuning strategies described in the next section.
+
+\section{Methodology}
+
+This section presents the entire modeling pipeline used for Bangla–Banglish emotion detection. It covers custom tokenization, vocabulary preparation, neural architectures, hyperparameters, and the fine-tuning strategy for all experimental runs. The workflow was intentionally built from scratch to handle noisy, code-mixed text without relying on external NLP tools.
+
+\subsection{Custom Tokenization and Vocabulary Design}
+
+\subsubsection{Motivation for a Custom Tokenizer}
+Pretrained tokenizers such as WordPiece, SentencePiece, or spaCy are optimized for English or monolingual corpora. When applied to Banglish text, they often:
+\begin{itemize}
+    \item split transliterated Bangla words incorrectly,
+    \item fail to handle inconsistent Romanization,
+    \item treat repeated characters (e.g., ``happyyyyy'') as distinct tokens,
+    \item inflate vocabulary size unnecessarily,
+    \item break emoji sequences into unusable units.
+\end{itemize}
+
+To avoid these issues, a custom tokenizer relying on whitespace splitting and frequency filtering was implemented.
+
+\subsubsection{Vocabulary Construction}
+Each cleaned sentence was tokenized, and a frequency dictionary was created. Tokens occurring fewer than three times were removed. The vocabulary indexing scheme was:
+\begin{itemize}
+    \item \texttt{<PAD>} = 1,
+    \item \texttt{<UNK>} = 2,
+    \item All remaining tokens = 3 ... $V$.
+\end{itemize}
+This resulted in a final vocabulary of approximately 18K–20K tokens.
+
+\subsubsection{Sequence Encoding}
+Sentences were mapped to integer sequences using the vocabulary. Unknown or misspelled words were replaced by \texttt{<UNK>}. All sequences were padded or truncated to a fixed length ($max\_len = 50$) to ensure uniform input shape for the models.
+
+\subsubsection{Reproducible Artifacts}
+The pipeline saves:
+\begin{itemize}
+    \item \texttt{vocab.txt} (token list),
+    \item \texttt{tokenizer.json} (token-to-ID mapping),
+    \item train/validation/test integer-encoded datasets.
+\end{itemize}
+
+\subsection{Neural Network Architectures}
+
+Two sequence models were developed: a unidirectional LSTM and a Bidirectional LSTM (BiLSTM). Both use randomly initialized, trainable embeddings tailored to Banglish transliterations.
+
+\subsubsection{Embedding Layer}
+A learnable embedding matrix ($d = 64$--$128$) converts token IDs to dense vectors. Training embeddings from scratch enables the model to learn semantic relations specific to Banglish spelling variations.
+
+\subsubsection{LSTM Architecture}
+The baseline LSTM model includes:
+\begin{itemize}
+    \item Embedding layer,
+    \item LSTM layer with $u$ units and dropout,
+    \item Dense layer with ReLU,
+    \item Dropout layer,
+    \item Output softmax layer (6 emotions).
+\end{itemize}
+
+\subsubsection{Bidirectional LSTM Architecture}
+The BiLSTM model extends the LSTM by processing sequences in forward and backward directions. Its architecture includes:
+\begin{itemize}
+    \item Embedding layer,
+    \item Bidirectional LSTM with $u$ units,
+    \item Dense-ReLU layer,
+    \item Dropout,
+    \item Softmax output layer.
+\end{itemize}
+
+\subsection{Model Architectures for Experimental Runs}
+
+The following tables summarize the exact architecture used for each run.
+
+% ------------------------
+% LSTM Run 1
+% ------------------------
+\subsubsection{LSTM -- Run 1 (Baseline)}
+\begin{table}[H]
+\centering
+\caption{Architecture of LSTM Model (Run 1)}
+\label{tab:lstm1_arch}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Layer} & \textbf{Units/Size} & \textbf{Activation} \\ \hline
+Embedding & baseline $d$ & -- \\ \hline
+LSTM & baseline $u$ & tanh \\ \hline
+Dense (FC) & 64 & ReLU \\ \hline
+Dropout & 0.3 & -- \\ \hline
+Output Dense & 6 & Softmax \\ \hline
+\end{tabular}
+\end{table}
+
+% ------------------------
+% LSTM Run 2
+% ------------------------
+\subsubsection{LSTM -- Run 2 (Tuned)}
+\begin{table}[H]
+\centering
+\caption{Architecture of LSTM Model (Run 2)}
+\label{tab:lstm2_arch}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Layer} & \textbf{Units/Size} & \textbf{Activation} \\ \hline
+Embedding & increased $d$ & -- \\ \hline
+LSTM & increased $u$ & tanh \\ \hline
+Dense (FC) & 128 & ReLU \\ \hline
+Dropout & 0.4 & -- \\ \hline
+Output Dense & 6 & Softmax \\ \hline
+\end{tabular}
+\end{table}
+
+% ------------------------
+% BiLSTM Run 1
+% ------------------------
+\subsubsection{BiLSTM -- Run 1 (Baseline)}
+\begin{table}[H]
+\centering
+\caption{Architecture of BiLSTM Model (Run 1)}
+\label{tab:bilstm1_arch}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Layer} & \textbf{Units/Size} & \textbf{Activation} \\ \hline
+Embedding & baseline $d$ & -- \\ \hline
+BiLSTM & baseline $u$ & tanh \\ \hline
+Dense (FC) & 64 & ReLU \\ \hline
+Dropout & 0.3 & -- \\ \hline
+Output Dense & 6 & Softmax \\ \hline
+\end{tabular}
+\end{table}
+
+% ------------------------
+% BiLSTM Run 2
+% ------------------------
+\subsubsection{BiLSTM -- Run 2 (Tuned)}
+\begin{table}[H]
+\centering
+\caption{Architecture of BiLSTM Model (Run 2)}
+\label{tab:bilstm2_arch}
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Layer} & \textbf{Units/Size} & \textbf{Activation} \\ \hline
+Embedding & increased $d$ & -- \\ \hline
+BiLSTM & increased $u$ & tanh \\ \hline
+Dense (FC) & 128 & ReLU \\ \hline
+Dropout & 0.5 & -- \\ \hline
+Output Dense & 6 & Softmax \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Hyperparameters}
+Across all runs, the following hyperparameters were tested:
+\begin{itemize}
+    \item Embedding dimension: 64, 100, 128
+    \item LSTM/BiLSTM units: 64, 128, 192
+    \item Dropout rate: 0.2--0.5
+    \item Learning rate: $1\times10^{-3}$ or $5\times10^{-4}$
+    \item Batch size: 64 or 128
+    \item Sequence length: 40--60 tokens
+    \item Optimizer: Adam
+\end{itemize}
+
+\subsection{Fine-Tuning Strategy}
+Two main configurations were evaluated:
+\begin{enumerate}
+    \item \textbf{Run 1 (Baseline):} moderate embedding size, fewer recurrent units, lower dropout.
+    \item \textbf{Run 2 (Tuned):} increased embedding size, larger LSTM/BiLSTM units, stronger dropout regularization.
+\end{enumerate}
+
+Two callbacks improved training stability:
+\begin{itemize}
+    \item \textbf{EarlyStopping} to halt training when validation loss stagnated.
+    \item \textbf{ReduceLROnPlateau} to lower learning rate when improvement slowed.
+\end{itemize}
+
+\subsection{Summary}
+The methodology combines a custom preprocessing pipeline, two recurrent architectures, and a systematic fine-tuning process. This setup ensures a fair and comprehensive comparison of LSTM and BiLSTM models for emotion classification on noisy, code-mixed Bangla–Banglish text.
+
+\section{Training Procedure}
+
+This section outlines the complete training workflow used for the LSTM and BiLSTM models. It includes details on loss functions, optimization strategy, batch scheduling, seed initialization, callbacks, runtime environment, and the behaviour of the models across epochs. The goal was to design a stable, reproducible, and GPU-efficient training pipeline that allows fair comparison between different hyperparameter configurations.
+
+\subsection{Loss Function and Output Representation}
+Since the task is a multi-class classification problem with six emotion categories, the models were trained using the categorical cross-entropy loss function:
+\[
+\mathcal{L}(y,\hat{y}) = -\sum_{i=1}^{6} y_i \log(\hat{y}_i),
+\]
+where $y_i$ is the ground-truth one-hot label and $\hat{y}_i$ is the predicted probability for class $i$.  
+The use of softmax in the final layer ensures that predicted scores form a valid probability distribution across all emotion categories.
+
+\subsection{Optimizer and Learning Rate Strategy}
+All models were trained using the Adam optimizer, selected for its adaptive learning-rate mechanism and stability on noisy text data. Adam helps maintain consistent convergence even when texts include inconsistent spelling, mixed scripts, or variable-length expressions. The learning rate was set based on the hyperparameter configuration:
+\[
+\text{lr} \in \{1\times10^{-3},\, 5\times10^{-4}\}.
+\]
+The tuned runs benefited from the lower learning rate, which allowed finer adjustments as the models approached minima.
+
+To avoid plateaus, the \texttt{ReduceLROnPlateau} callback was used. When the validation loss failed to improve for two consecutive epochs, the learning rate was reduced by a factor of 0.5. This adaptive strategy helped prevent the early stagnation observed in preliminary experiments.
+
+\subsection{Random Seed Initialization}
+Reproducibility was a priority. Before training any model, random seeds were manually set for:
+\begin{itemize}
+    \item Python’s built-in \texttt{random} library,
+    \item NumPy's pseudorandom generator,
+    \item TensorFlow's internal graph and operation seeds.
+\end{itemize}
+This ensures that weight initialization, shuffle order, dropout behavior, and batch formation remain consistent across runs and experiments.
+
+\subsection{Batch Formation, Shuffling, and Data Flow}
+The dataset was shuffled before each epoch to avoid any dependence on the ordering of samples. Emotion datasets often contain short bursts of similar posts (e.g., sadness-heavy threads), making shuffling essential for preventing local bias.
+
+Batch sizes of 64 or 128 were used depending on the model configuration. Larger batches provided smoother gradient estimates for BiLSTM runs, while smaller batches improved robustness for noisier LSTM baseline experiments.  
+
+Each batch passed through the following sequence:
+\begin{enumerate}
+    \item token IDs $\rightarrow$ embedding lookup,
+    \item recurrent layer (LSTM/BiLSTM),
+    \item nonlinear dense transformation,
+    \item dropout for regularization,
+    \item final softmax for classification.
+\end{enumerate}
+
+\subsection{Epoch Behaviour and Convergence Characteristics}
+The behaviour of validation loss and accuracy differed across model variants:
+
+\subsubsection{LSTM Baseline (Run 1)}
+Training loss decreased steadily across epochs. However, validation loss plateaued early, and a noticeable gap emerged between training and validation accuracy. This suggests mild overfitting due to limited recurrent capacity and insufficient regularization.
+
+\subsubsection{LSTM Tuned (Run 2)}
+With increased embedding size and LSTM units, convergence behaviour improved. Validation accuracy initially fluctuated during early epochs but stabilized once the learning rate was reduced by the scheduler. The tuned model showed slower overfitting and stronger F1 performance.
+
+\subsubsection{BiLSTM Baseline and Tuned Runs}
+BiLSTM configurations converged faster than LSTMs. Validation accuracy approached its maximum within the first few epochs. The bidirectional structure helped capture context more effectively, leading to smoother and more stable loss curves. The tuned BiLSTM (Run~2) demonstrated the strongest and most consistent convergence among all experiments.
+
+\subsection{Callbacks and Training Stability}
+Two major callbacks were used to maintain stability and prevent overfitting:
+
+\subsubsection{EarlyStopping}
+Training stopped automatically once validation loss failed to improve for two epochs. The callback also restored the best set of weights recorded during training, ensuring the final model was not taken from an overfitted state.
+
+\subsubsection{ReduceLROnPlateau}
+This callback was triggered when the validation loss plateaued. The learning rate was halved, allowing the optimizer to take more refined steps. In BiLSTM runs, this often occurred between epochs 4 and 6.
+
+These callbacks significantly improved training stability and prevented unnecessary GPU computation.
+
+\subsection{Runtime Environment and Resource Utilization}
+All experiments were performed on a Google Colab GPU runtime. The typical hardware setup consisted of:
+\begin{itemize}
+    \item NVIDIA Tesla T4 GPU,
+    \item 16 GB GPU memory,
+    \item 12 GB CPU RAM.
+\end{itemize}
+
+GPU utilization averaged between 40\% and 60\%, depending on sequence length and model size. BiLSTM models required more GPU memory due to bidirectional processing.
+
+Typical training durations:
+\begin{itemize}
+    \item LSTM Run~1: 6--7 minutes,
+    \item LSTM Run~2: 8--10 minutes,
+    \item BiLSTM Run~1: 7--8 minutes,
+    \item BiLSTM Run~2: 10--12 minutes.
+\end{itemize}
+
+\subsection{Monitoring and Evaluation During Training}
+Throughout training, the following metrics were logged after each epoch:
+\begin{itemize}
+    \item training accuracy and validation accuracy,
+    \item training loss and validation loss,
+    \item macro F1-score on the validation set,
+    \item confusion matrix (computed after training),
+    \item per-class F1 scores.
+\end{itemize}
+
+These metrics were essential for comparing the four experimental runs and for identifying overfitting patterns.
+
+\subsection{Training Workflow Summary}
+The final training workflow can be summarized as:
+\begin{enumerate}
+    \item Load preprocessed and padded integer sequences.
+    \item Initialize the model (LSTM or BiLSTM) with a selected architecture.
+    \item Set Adam optimizer and categorical cross-entropy loss.
+    \item Train the model using batch size 64/128 with shuffled batches.
+    \item Apply EarlyStopping and ReduceLROnPlateau for stability.
+    \item Monitor metrics each epoch and save the best-performing version.
+\end{enumerate}
+
+This structured and reproducible training pipeline ensured a fair comparison between LSTM and BiLSTM models and produced stable results across all hyperparameter settings.
+
+\section{Results}
+
+This section reports the performance of the LSTM and BiLSTM models across two experimental configurations: (i) baseline hyperparameters, and (ii) tuned hyperparameters. Evaluation uses training/validation accuracy curves, per-class F1 scores, macro F1, and confusion matrices over the six emotion categories: anger, disgust, fear, joy, sadness, and surprise.
+
+% ----------------------------------------------------------
+%                     LSTM RESULTS
+% ----------------------------------------------------------
+\subsection{LSTM Performance}
+
+\subsubsection{LSTM -- Run 1 (Baseline)}
+
+The baseline LSTM model shows slow convergence during the initial epochs. As seen in Fig.~\ref{fig:lstm_run1_acc}, the validation accuracy increases only to approximately 46--47\%, while the training accuracy grows to about 62\%, indicating moderate overfitting.
+
+The per-class F1 distribution in Fig.~\ref{fig:lstm_run1_f1} shows that \emph{joy} and \emph{surprise} obtain relatively higher F1 scores, whereas \emph{anger} and \emph{fear} remain weak due to class imbalance and overlapping lexical patterns.
+
+The confusion matrix in Fig.~\ref{fig:lstm_run1_cm} confirms that \emph{joy} is predicted most accurately, while \emph{anger} and \emph{fear} are frequently confused with \emph{sadness} and \emph{joy}, demonstrating difficulty in separating similar emotional expressions.
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{lstm_run1.png}
+    \caption{Training and validation accuracy for LSTM Run~1 (baseline).}
+    \label{fig:lstm_run1_acc}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{lstmF1_run1.png}
+    \caption{Per-class F1 scores for LSTM Run~1 (baseline).}
+    \label{fig:lstm_run1_f1}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{lstmmatrix_run1.png}
+    \caption{Confusion matrix for LSTM Run~1 (baseline).}
+    \label{fig:lstm_run1_cm}
+\end{figure}
+
+\subsubsection{LSTM -- Run 2 (Tuned)}
+
+After tuning hyperparameters, convergence improves substantially. As shown in Fig.~\ref{fig:lstm_run2_acc}, validation accuracy increases from around 23\% in the early epochs to approximately 56\%, while training accuracy reaches about 72\%.
+
+The per-class F1 distribution in Fig.~\ref{fig:lstm_run2_f1} highlights that \emph{joy} and \emph{surprise} achieve the highest predictive performance, whereas \emph{anger} and \emph{fear} remain challenging due to class imbalance and linguistic ambiguity.
+
+The confusion matrix in Fig.~\ref{fig:lstm_run2_cm} demonstrates clearer separation between classes compared to Run~1, especially for \emph{joy}, although overlap persists among \emph{anger}, \emph{sadness}, and \emph{surprise}.
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{lstm_run2.png}
+    \caption{Training and validation accuracy for LSTM Run~2 (tuned).}
+    \label{fig:lstm_run2_acc}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{F1_run2.png}
+    \caption{Per-class F1 scores for LSTM Run~2 (tuned).}
+    \label{fig:lstm_run2_f1}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{matrix_run2.png}
+    \caption{Confusion matrix for LSTM Run~2 (tuned).}
+    \label{fig:lstm_run2_cm}
+\end{figure}
+
+% ----------------------------------------------------------
+%                     BILSTM RESULTS
+% ----------------------------------------------------------
+\subsection{BiLSTM Performance}
+
+\subsubsection{BiLSTM -- Run 1 (Baseline)}
+
+The BiLSTM baseline clearly outperforms the LSTM baseline. As seen in Fig.~\ref{fig:bilstm_run1_acc}, validation accuracy stabilizes around 58--59\%, while training accuracy rises to approximately 86\%. The bidirectional structure captures richer contextual information compared to the unidirectional LSTM.
+
+Figure~\ref{fig:bilstm_run1_f1} shows that \emph{joy}, \emph{sadness}, and \emph{disgust} obtain relatively strong F1 scores, while \emph{anger} and \emph{fear} remain weaker.
+
+The confusion matrix in Fig.~\ref{fig:bilstm_run1_cm} demonstrates strong prediction for \emph{joy}, \emph{sadness}, and \emph{disgust}. Most misclassifications occur among \emph{anger}, \emph{sadness}, and \emph{surprise}.
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{bilstm_run1.png}
+    \caption{Training and validation accuracy for BiLSTM Run~1 (baseline).}
+    \label{fig:bilstm_run1_acc}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{bilstmF1_run1.png}
+    \caption{Per-class F1 scores for BiLSTM Run~1 (baseline).}
+    \label{fig:bilstm_run1_f1}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{bilstmmatrix_run1.png}
+    \caption{Confusion matrix for BiLSTM Run~1 (baseline).}
+    \label{fig:bilstm_run1_cm}
+\end{figure}
+
+\subsubsection{BiLSTM -- Run 2 (Tuned)}
+
+The tuned BiLSTM model achieves the strongest overall performance in the study. As seen in Fig.~\ref{fig:bilstm_run2_acc}, training accuracy increases rapidly while validation accuracy remains stable around 58--59\%, indicating improved generalization compared to the LSTM runs.
+
+The per-class F1 scores in Fig.~\ref{fig:bilstm_run2_f1} show improved balance across all emotion classes. In particular, \emph{disgust} and \emph{sadness} benefit from tuning, while \emph{joy} remains the best-performing class.
+
+The confusion matrix in Fig.~\ref{fig:bilstm_run2_cm} reveals that the majority classes are predicted reliably, and misclassifications are reduced compared to the baseline BiLSTM.
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{bilstm_run2.png}
+    \caption{Training and validation accuracy for BiLSTM Run~2 (tuned).}
+    \label{fig:bilstm_run2_acc}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{bilstmF1_run2.png}
+    \caption{Per-class F1 scores for BiLSTM Run~2 (tuned).}
+    \label{fig:bilstm_run2_f1}
+\end{figure}
+
+\begin{figure}[H]
+
+    \centering
+    \includegraphics[width=\columnwidth]{bilstmmatrix_run2.png}
+    \caption{Confusion matrix for BiLSTM Run~2 (tuned).}
+    \label{fig:bilstm_run2_cm}
+\end{figure}
+
+
+% ----------------------------------------------------------
+%                  COMPARISON TABLE
+% ----------------------------------------------------------
+\subsection{Comparison Between Models}
+
+Table~\ref{tab:comparison} summarizes the best-performing configurations of LSTM and BiLSTM.
+
+\begin{table}[!t]
+\centering
+\caption{Performance comparison of best LSTM and BiLSTM configurations.}
+\label{tab:comparison}
+\begin{tabular}{lcc}
+\hline
+\textbf{Metric} & \textbf{LSTM (Run 2)} & \textbf{BiLSTM (Run 2)} \\
+\hline
+Validation Accuracy & 56\% & \textbf{59\%} \\
+Training Accuracy   & 72\% & \textbf{86\%} \\
+Macro F1            & Moderate & \textbf{High} \\
+Best Class          & Joy & \textbf{Joy} \\
+Weakest Class       & Anger & Anger \\
+Overfitting         & Present & Less severe \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Overall Findings}
+
+The BiLSTM model achieves the best overall performance among all tested architectures. It delivers higher macro F1-scores, more stable validation accuracy, and cleaner confusion matrices. Hyperparameter tuning significantly improves both models, but BiLSTM consistently shows superior contextual understanding of Bangla--Banglish emotion expressions. Class imbalance remains an open challenge, especially for \emph{anger}, \emph{fear}, and \emph{disgust}, suggesting that future work should explore re-sampling strategies and cost-sensitive training.
+\section{Discussion}
+
+This study demonstrates that recurrent neural network architectures, particularly BiLSTM models, are effective for emotion detection in Bangla and Banglish social media text. Despite achieving promising accuracy and balanced F1-scores across several emotion classes, the system exhibits important limitations that inform future research directions.
+
+A primary limitation arises from class imbalance in the dataset. Emotions such as \emph{anger}, \emph{fear}, and \emph{disgust} appear less frequently, causing the models to favor dominant classes like \emph{joy} and \emph{sadness}. This imbalance directly affects macro F1 performance and leads to underrepresentation of minority emotions in predictions. Techniques such as focal loss, class-weighting, and synthetic data augmentation may help mitigate these issues.
+
+Another limitation concerns linguistic complexity in Bangla–Banglish code-mixed data. Variability in Romanized spellings, informal grammar, and context-heavy expressions challenges both the tokenizer and the sequence models. Although a custom tokenizer was built for this work, it remains sensitive to noisy, misspelled, or highly dialectal inputs. Further improvements could integrate character-level modeling or subword tokenization.
+
+The models also show signs of overfitting, especially in LSTM Run~2, where training accuracy rises sharply while validation accuracy plateaus. While early stopping and learning-rate scheduling were used, regularization techniques such as dropout tuning, weight decay, and larger training corpora may further reduce overfitting.
+
+From an ethical perspective, emotion detection in social media carries privacy and fairness considerations. Predictions may be biased toward demographic groups whose linguistic patterns dominate the dataset. Misclassification—particularly of negative emotions—may lead to unintended psychological or social consequences if deployed in real applications. Additionally, emotion inference can be sensitive and potentially intrusive, making transparent model behavior and user consent essential.
+
+Overall, while the system provides strong baseline performance for Bangla/Banglish emotion detection, future developments should address data imbalance, fairness considerations, linguistic diversity, and robustness to deploy the models responsibly.
+\section{Conclusion and Future Work}
+
+This project developed a complete workflow for emotion detection in Bangla and Banglish social media text using LSTM and BiLSTM models. Starting from dataset cleaning and custom tokenization to model training and evaluation, the entire pipeline was built without relying on external NLP libraries. The results show that both models are capable of learning meaningful emotional patterns from noisy code-mixed text, but the BiLSTM architecture performs more consistently across accuracy, F1-scores, and confusion matrices. Its ability to use context from both directions helps it handle short and informal text more effectively than the standard LSTM.
+
+Although the models perform well for emotions such as \emph{joy} and \emph{sadness}, some emotions remain difficult to classify. Classes like \emph{anger}, \emph{fear}, and \emph{disgust} suffer from lower scores mainly due to imbalance in the dataset and the overlapping nature of these emotional expressions. In addition, spelling variations, inconsistent Romanization, and noisy social media language still pose challenges even after preprocessing.
+
+There are several directions for improvement. Transformer-based models such as BERT or Bangla-BERT could be explored to better capture long-range dependencies. Data augmentation or resampling techniques may help reduce the imbalance across emotion classes. Character-level or subword tokenization could also make the system more robust to spelling variations. Finally, extending the dataset with more diverse examples—including dialectal Bangla, emojis, or multimodal cues—may further improve model stability.
+
+Overall, this work provides a practical baseline for Bangla–Banglish emotion detection and can serve as a starting point for more advanced NLP research in low-resource and code-mixed settings.
+
+
+
+
+
+\begin{thebibliography}{00}
+
+\bibitem{hochreiter1997lstm}
+S. Hochreiter and J. Schmidhuber, “Long short-term memory,” \emph{Neural Computation}, vol. 9, no. 8, pp. 1735--1780, 1997.
+
+\bibitem{schuster1997bilstm}
+M. Schuster and K. K. Paliwal, “Bidirectional recurrent neural networks,” \emph{IEEE Transactions on Signal Processing}, vol. 45, no. 11, pp. 2673--2681, 1997.
+
+\bibitem{mikolov2013distributed}
+T. Mikolov, I. Sutskever, K. Chen, G. Corrado, and J. Dean, “Distributed representations of words and phrases and their compositionality,” in \emph{Proc. NIPS}, 2013.
+
+\bibitem{pennington2014glove}
+J. Pennington, R. Socher, and C. Manning, “GloVe: Global vectors for word representation,” in \emph{Proc. EMNLP}, 2014.
+
+\bibitem{devlin2019bert}
+J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, “BERT: Pre-training of deep bidirectional transformers for language understanding,” in \emph{Proc. NAACL}, 2019.
+
+\bibitem{bouazizi2017sentiment}
+M. Bouazizi and T. Ohtsuki, “A pattern-based approach for multi-class sentiment analysis in Twitter,” \emph{IEEE Access}, vol. 5, pp. 20617--20639, 2017.
+
+\bibitem{chakraborty2020cm}
+T. Chakraborty, A. Choudhury, M. Ragini, and K. Saha, “Sentiment analysis of code-mixed Indian languages: A survey,” in \emph{Proc. LREC}, 2020.
+
+\bibitem{alam2018bangla}
+F. Alam, N. F. Hossain, and S. A. Hossain, “Bidirectional LSTM and attention-based model for Bangla sentiment analysis,” in \emph{Proc. ICAICT}, 2018.
+
+\bibitem{hasan2020bnlp}
+H. Hasan, N. M. Rahman, and M. S. Islam, “BNLP toolkit: Natural language processing toolkit for Bengali language,” in \emph{Proc. LREC}, 2020.
+
+\bibitem{mendeleyDataset}
+S. K. Das, “Bangla and Banglish emotion dataset (80k),” \emph{Mendeley Data}, V2, 2020. Available: https://data.mendeley.com/datasets/4dnrwbxt8n/2
+
+\bibitem{yadav2020deep}
+A. Yadav and D. Vishwakarma, “Deep learning-based sentiment analysis using LSTM,” \emph{Procedia Computer Science}, vol. 167, pp. 1825--1834, 2020.
+
+\bibitem{bengaliCodeMixed}
+A. K. Das, S. Mandal, and A. Basu, “A survey on code-mixed text processing,” \emph{ACM Computing Surveys}, vol. 54, no. 2, pp. 1--36, 2021.
+
+\end{thebibliography}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

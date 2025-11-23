@@ -1,0 +1,14 @@
+\subsection{Exploratory Data Analysis}
+
+\subsubsection{Emotion Class Distribution}
+The class frequencies show a skewed distribution. Approximately:
+\begin{itemize}
+    \item Joy: \(\sim 22\%\)
+    \item Sadness: \(\sim 21\%\)
+    \item Anger: \(\sim 18\%\)
+    \item Fear: \(\sim 16\%\)
+    \item Surprise: \(\sim 13\%\)
+    \item Disgust: \(\sim 10\%\)
+\end{itemize}
+
+This imbalance explains why the models, especially LSTM Run~1, perform weakly on \textit{anger}, \textit{fear}, and \textit{disgust}, which receive less representation during training.
